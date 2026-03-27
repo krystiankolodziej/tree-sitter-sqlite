@@ -26,13 +26,13 @@
 (bind_parameter) @variable.parameter
 (comment) @comment
 
-;;; Identifiers (general — must come BEFORE more specific captures)
-
-(identifier) @variable
-
-;;; Functions (more specific — identifier inside function_name overrides @variable)
+;;; Functions (must come BEFORE general identifier to take priority)
 
 (function_name (identifier) @function.call)
+
+;;; Identifiers (general — lower priority than function.call above)
+
+(identifier) @variable
 
 ;;; Type names
 
