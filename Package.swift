@@ -16,6 +16,7 @@ let package = Package(
             dependencies: [],
             path: ".",
             sources: ["src/parser.c"],
+            resources: [.copy("queries")],
             publicHeadersPath: "bindings/swift/TreeSitterSqlite",
             cSettings: [
                 .headerSearchPath("src"),
