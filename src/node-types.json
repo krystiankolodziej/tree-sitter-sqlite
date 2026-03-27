@@ -2,7 +2,26 @@
   {
     "type": "alter_table_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "table": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -53,21 +72,32 @@
   {
     "type": "analyze_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "ANALYZE",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -76,7 +106,22 @@
   {
     "type": "attach_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -263,7 +308,22 @@
   {
     "type": "begin_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -286,14 +346,6 @@
         },
         {
           "type": "TRANSACTION",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -574,25 +626,38 @@
   {
     "type": "column_def",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "column_constraint",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "type_name",
           "named": true
         }
       ]
@@ -601,12 +666,28 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
     "type": "commit_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -622,14 +703,6 @@
         {
           "type": "TRANSACTION",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -637,7 +710,50 @@
   {
     "type": "common_table_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "select_stmt",
+            "named": true
+          }
+        ]
+      },
+      "columns": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -653,17 +769,32 @@
         {
           "type": "NOT",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "compound_operator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
         {
-          "type": "identifier",
+          "type": "ALL",
           "named": true
         },
         {
-          "type": "select_stmt",
+          "type": "EXCEPT",
           "named": true
         },
         {
-          "type": "string_literal",
+          "type": "INTERSECT",
+          "named": true
+        },
+        {
+          "type": "UNION",
           "named": true
         }
       ]
@@ -711,7 +842,40 @@
   {
     "type": "create_index_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -745,15 +909,7 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "indexed_column",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         },
         {
@@ -766,7 +922,26 @@
   {
     "type": "create_table_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -820,15 +995,7 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "select_stmt",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         },
         {
@@ -841,7 +1008,40 @@
   {
     "type": "create_trigger_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1100,7 +1300,36 @@
   {
     "type": "create_view_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "select_stmt",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1142,10 +1371,6 @@
           "named": true
         },
         {
-          "type": "select_stmt",
-          "named": true
-        },
-        {
           "type": "string_literal",
           "named": true
         }
@@ -1155,7 +1380,40 @@
   {
     "type": "create_virtual_table_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "module": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1193,14 +1451,6 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
           "type": "table_constraint",
           "named": true
         }
@@ -1210,7 +1460,28 @@
   {
     "type": "delete_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "qualified_table_name",
+            "named": true
+          }
+        ]
+      },
+      "with": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "with_clause",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1232,19 +1503,11 @@
           "named": true
         },
         {
-          "type": "qualified_table_name",
-          "named": true
-        },
-        {
           "type": "returning_clause",
           "named": true
         },
         {
           "type": "where_clause",
-          "named": true
-        },
-        {
-          "type": "with_clause",
           "named": true
         }
       ]
@@ -1253,7 +1516,22 @@
   {
     "type": "detach_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1265,14 +1543,6 @@
         {
           "type": "DETACH",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -1280,7 +1550,26 @@
   {
     "type": "drop_index_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1300,14 +1589,6 @@
         {
           "type": "INDEX",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -1315,7 +1596,26 @@
   {
     "type": "drop_table_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1335,14 +1635,6 @@
         {
           "type": "TABLE",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -1350,7 +1642,26 @@
   {
     "type": "drop_trigger_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1370,14 +1681,6 @@
         {
           "type": "TRIGGER",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -1385,7 +1688,26 @@
   {
     "type": "drop_view_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1404,14 +1726,6 @@
         },
         {
           "type": "VIEW",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -1805,7 +2119,22 @@
   {
     "type": "foreign_key_clause",
     "named": true,
-    "fields": {},
+    "fields": {
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -2161,7 +2490,282 @@
   {
     "type": "group_by_clause",
     "named": true,
-    "fields": {},
+    "fields": {
+      "having": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "%",
+            "named": false
+          },
+          {
+            "type": "&",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": "->>",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "<>",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": ">>",
+            "named": false
+          },
+          {
+            "type": "AND",
+            "named": true
+          },
+          {
+            "type": "AS",
+            "named": true
+          },
+          {
+            "type": "BETWEEN",
+            "named": true
+          },
+          {
+            "type": "CASE",
+            "named": true
+          },
+          {
+            "type": "CAST",
+            "named": true
+          },
+          {
+            "type": "COLLATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_DATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIME",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIMESTAMP",
+            "named": true
+          },
+          {
+            "type": "DISTINCT",
+            "named": true
+          },
+          {
+            "type": "ELSE",
+            "named": true
+          },
+          {
+            "type": "END",
+            "named": true
+          },
+          {
+            "type": "ESCAPE",
+            "named": true
+          },
+          {
+            "type": "EXISTS",
+            "named": true
+          },
+          {
+            "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "FROM",
+            "named": true
+          },
+          {
+            "type": "GLOB",
+            "named": true
+          },
+          {
+            "type": "IN",
+            "named": true
+          },
+          {
+            "type": "IS",
+            "named": true
+          },
+          {
+            "type": "ISNULL",
+            "named": true
+          },
+          {
+            "type": "LIKE",
+            "named": true
+          },
+          {
+            "type": "MATCH",
+            "named": true
+          },
+          {
+            "type": "NOT",
+            "named": true
+          },
+          {
+            "type": "NOTNULL",
+            "named": true
+          },
+          {
+            "type": "NULL",
+            "named": true
+          },
+          {
+            "type": "OR",
+            "named": true
+          },
+          {
+            "type": "REGEXP",
+            "named": true
+          },
+          {
+            "type": "THEN",
+            "named": true
+          },
+          {
+            "type": "TRUE",
+            "named": true
+          },
+          {
+            "type": "WHEN",
+            "named": true
+          },
+          {
+            "type": "bind_parameter",
+            "named": true
+          },
+          {
+            "type": "blob_literal",
+            "named": true
+          },
+          {
+            "type": "collation_name",
+            "named": true
+          },
+          {
+            "type": "filter_clause",
+            "named": true
+          },
+          {
+            "type": "function_name",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "numeric_literal",
+            "named": true
+          },
+          {
+            "type": "over_clause",
+            "named": true
+          },
+          {
+            "type": "raise_function",
+            "named": true
+          },
+          {
+            "type": "select_stmt",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "|",
+            "named": false
+          },
+          {
+            "type": "||",
+            "named": false
+          },
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -2544,7 +3148,50 @@
   {
     "type": "insert_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "alias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "with": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "with_clause",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -2760,10 +3407,6 @@
         {
           "type": "upsert_clause",
           "named": true
-        },
-        {
-          "type": "with_clause",
-          "named": true
         }
       ]
     }
@@ -2771,129 +3414,288 @@
   {
     "type": "join_constraint",
     "named": true,
-    "fields": {},
+    "fields": {
+      "predicate": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "%",
+            "named": false
+          },
+          {
+            "type": "&",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": "->>",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "<>",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": ">>",
+            "named": false
+          },
+          {
+            "type": "AND",
+            "named": true
+          },
+          {
+            "type": "AS",
+            "named": true
+          },
+          {
+            "type": "BETWEEN",
+            "named": true
+          },
+          {
+            "type": "CASE",
+            "named": true
+          },
+          {
+            "type": "CAST",
+            "named": true
+          },
+          {
+            "type": "COLLATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_DATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIME",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIMESTAMP",
+            "named": true
+          },
+          {
+            "type": "DISTINCT",
+            "named": true
+          },
+          {
+            "type": "ELSE",
+            "named": true
+          },
+          {
+            "type": "END",
+            "named": true
+          },
+          {
+            "type": "ESCAPE",
+            "named": true
+          },
+          {
+            "type": "EXISTS",
+            "named": true
+          },
+          {
+            "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "FROM",
+            "named": true
+          },
+          {
+            "type": "GLOB",
+            "named": true
+          },
+          {
+            "type": "IN",
+            "named": true
+          },
+          {
+            "type": "IS",
+            "named": true
+          },
+          {
+            "type": "ISNULL",
+            "named": true
+          },
+          {
+            "type": "LIKE",
+            "named": true
+          },
+          {
+            "type": "MATCH",
+            "named": true
+          },
+          {
+            "type": "NOT",
+            "named": true
+          },
+          {
+            "type": "NOTNULL",
+            "named": true
+          },
+          {
+            "type": "NULL",
+            "named": true
+          },
+          {
+            "type": "OR",
+            "named": true
+          },
+          {
+            "type": "REGEXP",
+            "named": true
+          },
+          {
+            "type": "THEN",
+            "named": true
+          },
+          {
+            "type": "TRUE",
+            "named": true
+          },
+          {
+            "type": "WHEN",
+            "named": true
+          },
+          {
+            "type": "bind_parameter",
+            "named": true
+          },
+          {
+            "type": "blob_literal",
+            "named": true
+          },
+          {
+            "type": "collation_name",
+            "named": true
+          },
+          {
+            "type": "filter_clause",
+            "named": true
+          },
+          {
+            "type": "function_name",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "numeric_literal",
+            "named": true
+          },
+          {
+            "type": "over_clause",
+            "named": true
+          },
+          {
+            "type": "raise_function",
+            "named": true
+          },
+          {
+            "type": "select_stmt",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "|",
+            "named": false
+          },
+          {
+            "type": "||",
+            "named": false
+          },
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "AND",
-          "named": true
-        },
-        {
-          "type": "AS",
-          "named": true
-        },
-        {
-          "type": "BETWEEN",
-          "named": true
-        },
-        {
-          "type": "CASE",
-          "named": true
-        },
-        {
-          "type": "CAST",
-          "named": true
-        },
-        {
-          "type": "COLLATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_DATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIME",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIMESTAMP",
-          "named": true
-        },
-        {
-          "type": "DISTINCT",
-          "named": true
-        },
-        {
-          "type": "ELSE",
-          "named": true
-        },
-        {
-          "type": "END",
-          "named": true
-        },
-        {
-          "type": "ESCAPE",
-          "named": true
-        },
-        {
-          "type": "EXISTS",
-          "named": true
-        },
-        {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "FROM",
-          "named": true
-        },
-        {
-          "type": "GLOB",
-          "named": true
-        },
-        {
-          "type": "IN",
-          "named": true
-        },
-        {
-          "type": "IS",
-          "named": true
-        },
-        {
-          "type": "ISNULL",
-          "named": true
-        },
-        {
-          "type": "LIKE",
-          "named": true
-        },
-        {
-          "type": "MATCH",
-          "named": true
-        },
-        {
-          "type": "NOT",
-          "named": true
-        },
-        {
-          "type": "NOTNULL",
-          "named": true
-        },
-        {
-          "type": "NULL",
-          "named": true
-        },
-        {
           "type": "ON",
-          "named": true
-        },
-        {
-          "type": "OR",
-          "named": true
-        },
-        {
-          "type": "REGEXP",
-          "named": true
-        },
-        {
-          "type": "THEN",
-          "named": true
-        },
-        {
-          "type": "TRUE",
           "named": true
         },
         {
@@ -2901,55 +3703,11 @@
           "named": true
         },
         {
-          "type": "WHEN",
-          "named": true
-        },
-        {
-          "type": "bind_parameter",
-          "named": true
-        },
-        {
-          "type": "blob_literal",
-          "named": true
-        },
-        {
-          "type": "collation_name",
-          "named": true
-        },
-        {
-          "type": "filter_clause",
-          "named": true
-        },
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "over_clause",
-          "named": true
-        },
-        {
-          "type": "raise_function",
-          "named": true
-        },
-        {
-          "type": "select_stmt",
-          "named": true
-        },
-        {
           "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "type_name",
           "named": true
         }
       ]
@@ -2965,6 +3723,10 @@
       "types": [
         {
           "type": "CROSS",
+          "named": true
+        },
+        {
+          "type": "FULL",
           "named": true
         },
         {
@@ -2985,6 +3747,10 @@
         },
         {
           "type": "OUTER",
+          "named": true
+        },
+        {
+          "type": "RIGHT",
           "named": true
         }
       ]
@@ -3605,25 +4371,42 @@
   {
     "type": "pragma_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "pragma_value",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "PRAGMA",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "pragma_value",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -3655,10 +4438,43 @@
   {
     "type": "qualified_table_name",
     "named": true,
-    "fields": {},
+    "fields": {
+      "alias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "AS",
@@ -3725,21 +4541,32 @@
   {
     "type": "reindex_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "REINDEX",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -3748,7 +4575,22 @@
   {
     "type": "release_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -3760,13 +4602,323 @@
         {
           "type": "SAVEPOINT",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "result_column",
+    "named": true,
+    "fields": {
+      "alias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "%",
+            "named": false
+          },
+          {
+            "type": "&",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": "->>",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "<>",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": ">>",
+            "named": false
+          },
+          {
+            "type": "AND",
+            "named": true
+          },
+          {
+            "type": "AS",
+            "named": true
+          },
+          {
+            "type": "BETWEEN",
+            "named": true
+          },
+          {
+            "type": "CASE",
+            "named": true
+          },
+          {
+            "type": "CAST",
+            "named": true
+          },
+          {
+            "type": "COLLATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_DATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIME",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIMESTAMP",
+            "named": true
+          },
+          {
+            "type": "DISTINCT",
+            "named": true
+          },
+          {
+            "type": "ELSE",
+            "named": true
+          },
+          {
+            "type": "END",
+            "named": true
+          },
+          {
+            "type": "ESCAPE",
+            "named": true
+          },
+          {
+            "type": "EXISTS",
+            "named": true
+          },
+          {
+            "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "FROM",
+            "named": true
+          },
+          {
+            "type": "GLOB",
+            "named": true
+          },
+          {
+            "type": "IN",
+            "named": true
+          },
+          {
+            "type": "IS",
+            "named": true
+          },
+          {
+            "type": "ISNULL",
+            "named": true
+          },
+          {
+            "type": "LIKE",
+            "named": true
+          },
+          {
+            "type": "MATCH",
+            "named": true
+          },
+          {
+            "type": "NOT",
+            "named": true
+          },
+          {
+            "type": "NOTNULL",
+            "named": true
+          },
+          {
+            "type": "NULL",
+            "named": true
+          },
+          {
+            "type": "OR",
+            "named": true
+          },
+          {
+            "type": "REGEXP",
+            "named": true
+          },
+          {
+            "type": "THEN",
+            "named": true
+          },
+          {
+            "type": "TRUE",
+            "named": true
+          },
+          {
+            "type": "WHEN",
+            "named": true
+          },
+          {
+            "type": "bind_parameter",
+            "named": true
+          },
+          {
+            "type": "blob_literal",
+            "named": true
+          },
+          {
+            "type": "collation_name",
+            "named": true
+          },
+          {
+            "type": "filter_clause",
+            "named": true
+          },
+          {
+            "type": "function_name",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "numeric_literal",
+            "named": true
+          },
+          {
+            "type": "over_clause",
+            "named": true
+          },
+          {
+            "type": "raise_function",
+            "named": true
+          },
+          {
+            "type": "select_stmt",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "|",
+            "named": false
+          },
+          {
+            "type": "||",
+            "named": false
+          },
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
+          "type": "AS",
           "named": true
         }
       ]
@@ -3781,175 +4933,11 @@
       "required": true,
       "types": [
         {
-          "type": "AND",
-          "named": true
-        },
-        {
-          "type": "AS",
-          "named": true
-        },
-        {
-          "type": "BETWEEN",
-          "named": true
-        },
-        {
-          "type": "CASE",
-          "named": true
-        },
-        {
-          "type": "CAST",
-          "named": true
-        },
-        {
-          "type": "COLLATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_DATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIME",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIMESTAMP",
-          "named": true
-        },
-        {
-          "type": "DISTINCT",
-          "named": true
-        },
-        {
-          "type": "ELSE",
-          "named": true
-        },
-        {
-          "type": "END",
-          "named": true
-        },
-        {
-          "type": "ESCAPE",
-          "named": true
-        },
-        {
-          "type": "EXISTS",
-          "named": true
-        },
-        {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "FROM",
-          "named": true
-        },
-        {
-          "type": "GLOB",
-          "named": true
-        },
-        {
-          "type": "IN",
-          "named": true
-        },
-        {
-          "type": "IS",
-          "named": true
-        },
-        {
-          "type": "ISNULL",
-          "named": true
-        },
-        {
-          "type": "LIKE",
-          "named": true
-        },
-        {
-          "type": "MATCH",
-          "named": true
-        },
-        {
-          "type": "NOT",
-          "named": true
-        },
-        {
-          "type": "NOTNULL",
-          "named": true
-        },
-        {
-          "type": "NULL",
-          "named": true
-        },
-        {
-          "type": "OR",
-          "named": true
-        },
-        {
-          "type": "REGEXP",
-          "named": true
-        },
-        {
           "type": "RETURNING",
           "named": true
         },
         {
-          "type": "THEN",
-          "named": true
-        },
-        {
-          "type": "TRUE",
-          "named": true
-        },
-        {
-          "type": "WHEN",
-          "named": true
-        },
-        {
-          "type": "bind_parameter",
-          "named": true
-        },
-        {
-          "type": "blob_literal",
-          "named": true
-        },
-        {
-          "type": "collation_name",
-          "named": true
-        },
-        {
-          "type": "filter_clause",
-          "named": true
-        },
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "over_clause",
-          "named": true
-        },
-        {
-          "type": "raise_function",
-          "named": true
-        },
-        {
-          "type": "select_stmt",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "type_name",
+          "type": "result_column",
           "named": true
         }
       ]
@@ -3958,7 +4946,22 @@
   {
     "type": "rollback_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -3993,28 +4996,35 @@
   {
     "type": "savepoint_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "SAVEPOINT",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "select_stmt",
+    "type": "select_core",
     "named": true,
     "fields": {},
     "children": {
@@ -4078,10 +5088,6 @@
           "named": true
         },
         {
-          "type": "EXCEPT",
-          "named": true
-        },
-        {
           "type": "EXISTS",
           "named": true
         },
@@ -4099,10 +5105,6 @@
         },
         {
           "type": "IN",
-          "named": true
-        },
-        {
-          "type": "INTERSECT",
           "named": true
         },
         {
@@ -4154,10 +5156,6 @@
           "named": true
         },
         {
-          "type": "UNION",
-          "named": true
-        },
-        {
           "type": "VALUES",
           "named": true
         },
@@ -4198,15 +5196,7 @@
           "named": true
         },
         {
-          "type": "limit_clause",
-          "named": true
-        },
-        {
           "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "order_by_clause",
           "named": true
         },
         {
@@ -4215,6 +5205,10 @@
         },
         {
           "type": "raise_function",
+          "named": true
+        },
+        {
+          "type": "result_column",
           "named": true
         },
         {
@@ -4236,9 +5230,43 @@
         {
           "type": "window_clause",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_stmt",
+    "named": true,
+    "fields": {
+      "with": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "with_clause",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "compound_operator",
+          "named": true
         },
         {
-          "type": "with_clause",
+          "type": "limit_clause",
+          "named": true
+        },
+        {
+          "type": "order_by_clause",
+          "named": true
+        },
+        {
+          "type": "select_core",
           "named": true
         }
       ]
@@ -4385,6 +5413,7 @@
   {
     "type": "sql_stmt_list",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -4620,10 +5649,53 @@
   {
     "type": "table_or_subquery",
     "named": true,
-    "fields": {},
+    "fields": {
+      "alias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "select_stmt",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "AND",
@@ -4842,7 +5914,28 @@
   {
     "type": "update_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "qualified_table_name",
+            "named": true
+          }
+        ]
+      },
+      "with": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "with_clause",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -5040,10 +6133,6 @@
           "named": true
         },
         {
-          "type": "qualified_table_name",
-          "named": true
-        },
-        {
           "type": "raise_function",
           "named": true
         },
@@ -5065,10 +6154,6 @@
         },
         {
           "type": "where_clause",
-          "named": true
-        },
-        {
-          "type": "with_clause",
           "named": true
         }
       ]
@@ -5288,7 +6373,22 @@
   {
     "type": "vacuum_stmt",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -5304,14 +6404,6 @@
         {
           "type": "filename",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -5319,181 +6411,288 @@
   {
     "type": "where_clause",
     "named": true,
-    "fields": {},
+    "fields": {
+      "predicate": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "%",
+            "named": false
+          },
+          {
+            "type": "&",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": "->>",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "<>",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": ">>",
+            "named": false
+          },
+          {
+            "type": "AND",
+            "named": true
+          },
+          {
+            "type": "AS",
+            "named": true
+          },
+          {
+            "type": "BETWEEN",
+            "named": true
+          },
+          {
+            "type": "CASE",
+            "named": true
+          },
+          {
+            "type": "CAST",
+            "named": true
+          },
+          {
+            "type": "COLLATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_DATE",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIME",
+            "named": true
+          },
+          {
+            "type": "CURRENT_TIMESTAMP",
+            "named": true
+          },
+          {
+            "type": "DISTINCT",
+            "named": true
+          },
+          {
+            "type": "ELSE",
+            "named": true
+          },
+          {
+            "type": "END",
+            "named": true
+          },
+          {
+            "type": "ESCAPE",
+            "named": true
+          },
+          {
+            "type": "EXISTS",
+            "named": true
+          },
+          {
+            "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "FROM",
+            "named": true
+          },
+          {
+            "type": "GLOB",
+            "named": true
+          },
+          {
+            "type": "IN",
+            "named": true
+          },
+          {
+            "type": "IS",
+            "named": true
+          },
+          {
+            "type": "ISNULL",
+            "named": true
+          },
+          {
+            "type": "LIKE",
+            "named": true
+          },
+          {
+            "type": "MATCH",
+            "named": true
+          },
+          {
+            "type": "NOT",
+            "named": true
+          },
+          {
+            "type": "NOTNULL",
+            "named": true
+          },
+          {
+            "type": "NULL",
+            "named": true
+          },
+          {
+            "type": "OR",
+            "named": true
+          },
+          {
+            "type": "REGEXP",
+            "named": true
+          },
+          {
+            "type": "THEN",
+            "named": true
+          },
+          {
+            "type": "TRUE",
+            "named": true
+          },
+          {
+            "type": "WHEN",
+            "named": true
+          },
+          {
+            "type": "bind_parameter",
+            "named": true
+          },
+          {
+            "type": "blob_literal",
+            "named": true
+          },
+          {
+            "type": "collation_name",
+            "named": true
+          },
+          {
+            "type": "filter_clause",
+            "named": true
+          },
+          {
+            "type": "function_name",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "numeric_literal",
+            "named": true
+          },
+          {
+            "type": "over_clause",
+            "named": true
+          },
+          {
+            "type": "raise_function",
+            "named": true
+          },
+          {
+            "type": "select_stmt",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "|",
+            "named": false
+          },
+          {
+            "type": "||",
+            "named": false
+          },
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "AND",
-          "named": true
-        },
-        {
-          "type": "AS",
-          "named": true
-        },
-        {
-          "type": "BETWEEN",
-          "named": true
-        },
-        {
-          "type": "CASE",
-          "named": true
-        },
-        {
-          "type": "CAST",
-          "named": true
-        },
-        {
-          "type": "COLLATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_DATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIME",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIMESTAMP",
-          "named": true
-        },
-        {
-          "type": "DISTINCT",
-          "named": true
-        },
-        {
-          "type": "ELSE",
-          "named": true
-        },
-        {
-          "type": "END",
-          "named": true
-        },
-        {
-          "type": "ESCAPE",
-          "named": true
-        },
-        {
-          "type": "EXISTS",
-          "named": true
-        },
-        {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "FROM",
-          "named": true
-        },
-        {
-          "type": "GLOB",
-          "named": true
-        },
-        {
-          "type": "IN",
-          "named": true
-        },
-        {
-          "type": "IS",
-          "named": true
-        },
-        {
-          "type": "ISNULL",
-          "named": true
-        },
-        {
-          "type": "LIKE",
-          "named": true
-        },
-        {
-          "type": "MATCH",
-          "named": true
-        },
-        {
-          "type": "NOT",
-          "named": true
-        },
-        {
-          "type": "NOTNULL",
-          "named": true
-        },
-        {
-          "type": "NULL",
-          "named": true
-        },
-        {
-          "type": "OR",
-          "named": true
-        },
-        {
-          "type": "REGEXP",
-          "named": true
-        },
-        {
-          "type": "THEN",
-          "named": true
-        },
-        {
-          "type": "TRUE",
-          "named": true
-        },
-        {
-          "type": "WHEN",
-          "named": true
-        },
-        {
           "type": "WHERE",
-          "named": true
-        },
-        {
-          "type": "bind_parameter",
-          "named": true
-        },
-        {
-          "type": "blob_literal",
-          "named": true
-        },
-        {
-          "type": "collation_name",
-          "named": true
-        },
-        {
-          "type": "filter_clause",
-          "named": true
-        },
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "over_clause",
-          "named": true
-        },
-        {
-          "type": "raise_function",
-          "named": true
-        },
-        {
-          "type": "select_stmt",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "type_name",
           "named": true
         }
       ]
@@ -6117,6 +7316,10 @@
     "named": true
   },
   {
+    "type": "FULL",
+    "named": true
+  },
+  {
     "type": "GENERATED",
     "named": true
   },
@@ -6350,6 +7553,10 @@
   },
   {
     "type": "RETURNING",
+    "named": true
+  },
+  {
+    "type": "RIGHT",
     "named": true
   },
   {

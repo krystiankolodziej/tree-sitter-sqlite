@@ -24,7 +24,7 @@ module.exports = grammar({
 	conflicts: ($) => [
 		[$._literal_value, $._name],
 		[$._literal_value, $.signed_number],
-		[$.insert_stmt, $._select_core],
+		[$.insert_stmt, $.select_core],
 		[$.foreign_key_clause],
 	],
 
@@ -96,6 +96,7 @@ module.exports = grammar({
 			"FOR",
 			"FOREIGN",
 			"FROM",
+			"FULL",
 			"GENERATED",
 			"GLOB",
 			"GROUP",
@@ -155,6 +156,7 @@ module.exports = grammar({
 			"REPLACE",
 			"RESTRICT",
 			"RETURNING",
+			"RIGHT",
 			"ROLLBACK",
 			"ROW",
 			"ROWID",
@@ -280,7 +282,7 @@ module.exports = grammar({
 			seq(
 				$.ALTER,
 				$.TABLE,
-				$._name2,
+				field("table", $._name2),
 				choice(
 					seq($.RENAME, $.TO, $._name),
 					seq($.RENAME, optional($.COLUMN), $._name, $.TO, $._name),
@@ -289,22 +291,22 @@ module.exports = grammar({
 				),
 			),
 
-		analyze_stmt: ($) => seq($.ANALYZE, optional($._name2)),
+		analyze_stmt: ($) => seq($.ANALYZE, optional(field("name", $._name2))),
 
 		attach_stmt: ($) =>
-			seq($.ATTACH, optional($.DATABASE), $._expr, $.AS, $._name),
+			seq($.ATTACH, optional($.DATABASE), $._expr, $.AS, field("name", $._name)),
 
 		begin_stmt: ($) =>
 			seq(
 				$.BEGIN,
 				optional(choice($.DEFERRED, $.IMMEDIATE, $.EXCLUSIVE)),
-				optional(seq($.TRANSACTION, optional($._name))),
+				optional(seq($.TRANSACTION, optional(field("name", $._name)))),
 			),
 
 		commit_stmt: ($) =>
 			seq(
 				choice($.COMMIT, $.END),
-				optional(seq($.TRANSACTION, optional($._name))),
+				optional(seq($.TRANSACTION, optional(field("name", $._name)))),
 			),
 
 		create_index_stmt: ($) =>
@@ -313,9 +315,9 @@ module.exports = grammar({
 				optional($.UNIQUE),
 				$.INDEX,
 				optional(seq($.IF, $.NOT, $.EXISTS)),
-				$._name2,
+				field("name", $._name2),
 				$.ON,
-				$._name,
+				field("table", $._name),
 				"(",
 				commaSep($.indexed_column),
 				")",
@@ -328,7 +330,7 @@ module.exports = grammar({
 				optional(choice($.TEMP, $.TEMPORARY)),
 				$.TABLE,
 				optional(seq($.IF, $.NOT, $.EXISTS)),
-				$._name2,
+				field("name", $._name2),
 				choice(
 					seq($.AS, $.select_stmt),
 					seq(
@@ -349,7 +351,7 @@ module.exports = grammar({
 				optional(choice($.TEMP, $.TEMPORARY)),
 				$.TRIGGER,
 				optional(seq($.IF, $.NOT, $.EXISTS)),
-				$._name2,
+				field("name", $._name2),
 				optional(choice($.BEFORE, $.AFTER, seq($.INSTEAD, $.OF))),
 				choice(
 					$.DELETE,
@@ -357,7 +359,7 @@ module.exports = grammar({
 					seq($.UPDATE, optional(seq($.OF, commaSep($._name)))),
 				),
 				$.ON,
-				$._name,
+				field("table", $._name),
 				optional(
 					choice(
 						seq(
@@ -390,10 +392,10 @@ module.exports = grammar({
 				optional(choice($.TEMP, $.TEMPORARY)),
 				$.VIEW,
 				optional(seq($.IF, $.NOT, $.EXISTS)),
-				$._name2,
+				field("name", $._name2),
 				optional(seq("(", commaSep($._name), ")")),
 				$.AS,
-				$.select_stmt,
+				field("body", $.select_stmt),
 			),
 
 		create_virtual_table_stmt: ($) =>
@@ -402,9 +404,9 @@ module.exports = grammar({
 				$.VIRTUAL,
 				$.TABLE,
 				optional(seq($.IF, $.NOT, $.EXISTS)),
-				$._name2,
+				field("name", $._name2),
 				$.USING,
-				$._name,
+				field("module", $._name),
 				optional(
 					// https://sqlite.org/lang_createvtab.html
 					seq(
@@ -418,33 +420,33 @@ module.exports = grammar({
 
 		delete_stmt: ($) =>
 			seq(
-				optional($.with_clause),
+				optional(field("with", $.with_clause)),
 				$.DELETE,
 				$.FROM,
-				$.qualified_table_name,
+				field("table", $.qualified_table_name),
 				optional($.where_clause),
 				optional($.returning_clause),
 				optional($.order_by_clause),
 				optional($.limit_clause),
 			),
 
-		detach_stmt: ($) => seq($.DETACH, optional($.DATABASE), $._name),
+		detach_stmt: ($) => seq($.DETACH, optional($.DATABASE), field("name", $._name)),
 
 		drop_index_stmt: ($) =>
-			seq($.DROP, $.INDEX, optional(seq($.IF, $.EXISTS)), $._name2),
+			seq($.DROP, $.INDEX, optional(seq($.IF, $.EXISTS)), field("name", $._name2)),
 
 		drop_table_stmt: ($) =>
-			seq($.DROP, $.TABLE, optional(seq($.IF, $.EXISTS)), $._name2),
+			seq($.DROP, $.TABLE, optional(seq($.IF, $.EXISTS)), field("name", $._name2)),
 
 		drop_trigger_stmt: ($) =>
-			seq($.DROP, $.TRIGGER, optional(seq($.IF, $.EXISTS)), $._name2),
+			seq($.DROP, $.TRIGGER, optional(seq($.IF, $.EXISTS)), field("name", $._name2)),
 
 		drop_view_stmt: ($) =>
-			seq($.DROP, $.VIEW, optional(seq($.IF, $.EXISTS)), $._name2),
+			seq($.DROP, $.VIEW, optional(seq($.IF, $.EXISTS)), field("name", $._name2)),
 
 		insert_stmt: ($) =>
 			seq(
-				optional($.with_clause),
+				optional(field("with", $.with_clause)),
 				choice(
 					$.REPLACE,
 					seq(
@@ -464,8 +466,8 @@ module.exports = grammar({
 					),
 				),
 				$.INTO,
-				$._name2,
-				optional(seq($.AS, $._name)),
+				field("table", $._name2),
+				optional(seq($.AS, field("alias", $._name))),
 				optional(seq("(", commaSep($._name), ")")),
 				choice(
 					seq(
@@ -482,40 +484,40 @@ module.exports = grammar({
 		pragma_stmt: ($) =>
 			seq(
 				$.PRAGMA,
-				$._name2,
+				field("name", $._name2),
 				optional(
 					choice(
-						seq("=", $.pragma_value),
-						seq("(", $.pragma_value, ")"),
+						seq("=", field("value", $.pragma_value)),
+						seq("(", field("value", $.pragma_value), ")"),
 					),
 				),
 			),
 
-		reindex_stmt: ($) => seq($.REINDEX, optional($._name2)),
+		reindex_stmt: ($) => seq($.REINDEX, optional(field("name", $._name2))),
 
-		release_stmt: ($) => seq($.RELEASE, optional($.SAVEPOINT), $._name),
+		release_stmt: ($) => seq($.RELEASE, optional($.SAVEPOINT), field("name", $._name)),
 
 		rollback_stmt: ($) =>
 			seq(
 				$.ROLLBACK,
 				optional(seq($.TRANSACTION, optional($._name))),
-				optional(seq($.TO, optional($.SAVEPOINT), $._name)),
+				optional(seq($.TO, optional($.SAVEPOINT), field("name", $._name))),
 			),
 
-		savepoint_stmt: ($) => seq($.SAVEPOINT, $._name),
+		savepoint_stmt: ($) => seq($.SAVEPOINT, field("name", $._name)),
 
 		select_stmt: ($) =>
 			seq(
-				optional($.with_clause),
-				$._select_core,
-				repeat(seq($._compound_operator, $._select_core)),
+				optional(field("with", $.with_clause)),
+				$.select_core,
+				repeat(seq($.compound_operator, $.select_core)),
 				optional($.order_by_clause),
 				optional($.limit_clause),
 			),
 
 		update_stmt: ($) =>
 			seq(
-				optional($.with_clause),
+				optional(field("with", $.with_clause)),
 				$.UPDATE,
 				optional(
 					seq(
@@ -529,7 +531,7 @@ module.exports = grammar({
 						),
 					),
 				),
-				$.qualified_table_name,
+				field("table", $.qualified_table_name),
 				$.SET,
 				commaSep(
 					seq(choice($._name, $._column_name_list), "=", $._expr),
@@ -542,7 +544,7 @@ module.exports = grammar({
 			),
 
 		vacuum_stmt: ($) =>
-			seq($.VACUUM, optional($._name), optional(seq($.INTO, $.filename))),
+			seq($.VACUUM, optional(field("name", $._name)), optional(seq($.INTO, $.filename))),
 
 		/// part
 
@@ -696,7 +698,11 @@ module.exports = grammar({
 		indexed_column: ($) => seq($._expr, optional(choice($.ASC, $.DESC))),
 
 		column_def: ($) =>
-			seq($._name, optional($.type_name), repeat($.column_constraint)),
+			seq(
+				field("name", $._name),
+				optional(field("type", $.type_name)),
+				repeat($.column_constraint),
+			),
 
 		type_name: ($) =>
 			seq(
@@ -767,9 +773,9 @@ module.exports = grammar({
 				),
 			),
 
-		where_clause: ($) => seq($.WHERE, $._expr),
+		where_clause: ($) => seq($.WHERE, field("predicate", $._expr)),
 
-		returning_clause: ($) => seq($.RETURNING, commaSep($._result_column)),
+		returning_clause: ($) => seq($.RETURNING, commaSep($.result_column)),
 
 		order_by_clause: ($) => seq($.ORDER, $.BY, commaSep($.ordering_term)),
 
@@ -785,7 +791,7 @@ module.exports = grammar({
 				$.GROUP,
 				$.BY,
 				commaSep($._expr),
-				optional(seq($.HAVING, $._expr)),
+				optional(seq($.HAVING, field("having", $._expr))),
 			),
 
 		window_clause: ($) =>
@@ -801,12 +807,13 @@ module.exports = grammar({
 				")",
 			),
 
-		_select_core: ($) =>
+		// Renamed from _select_core to select_core (named node)
+		select_core: ($) =>
 			choice(
 				seq(
 					$.SELECT,
 					optional(choice($.DISTINCT, $.ALL)),
-					commaSep($._result_column),
+					commaSep($.result_column),
 					optional($.from_clause),
 					optional($.where_clause),
 					optional($.group_by_clause),
@@ -815,14 +822,19 @@ module.exports = grammar({
 				seq($.VALUES, commaSep(seq("(", commaSep($._expr), ")"))),
 			),
 
-		_compound_operator: ($) =>
+		// Renamed from _compound_operator to compound_operator (named node)
+		compound_operator: ($) =>
 			choice($.UNION, seq($.UNION, $.ALL), $.INTERSECT, $.EXCEPT),
 
-		_result_column: ($) =>
+		// Renamed from _result_column to result_column (named node) with field names
+		result_column: ($) =>
 			choice(
-				seq($._name, ".", "*"),
+				seq(field("table", $._name), ".", "*"),
 				"*",
-				seq($._expr, optional(seq(optional($.AS), $._name))),
+				seq(
+					field("value", $._expr),
+					optional(seq(optional($.AS), field("alias", $._name))),
+				),
 			),
 
 		with_clause: ($) =>
@@ -834,12 +846,12 @@ module.exports = grammar({
 
 		common_table_expression: ($) =>
 			seq(
-				$._name,
-				optional(seq("(", commaSep($._name), ")")),
+				field("name", $._name),
+				optional(seq("(", field("columns", commaSep($._name)), ")")),
 				$.AS,
 				optional(seq(optional($.NOT), $.MATERIALIZED)),
 				"(",
-				$.select_stmt,
+				field("body", $.select_stmt),
 				")",
 			),
 
@@ -853,7 +865,7 @@ module.exports = grammar({
 		foreign_key_clause: ($) =>
 			seq(
 				$.REFERENCES,
-				$._name,
+				field("table", $._name),
 				optional(seq("(", commaSep($._name), ")")),
 				repeat(
 					choice(
@@ -966,8 +978,8 @@ module.exports = grammar({
 
 		qualified_table_name: ($) =>
 			seq(
-				$._name2,
-				optional(seq($.AS, $._name)),
+				field("name", $._name2),
+				optional(seq($.AS, field("alias", $._name))),
 				optional(
 					choice(
 						seq($.INDEXED, $.BY, $._name),
@@ -998,6 +1010,8 @@ module.exports = grammar({
 					optional(
 						choice(
 							seq($.LEFT, optional($.OUTER)),
+							seq($.RIGHT, optional($.OUTER)),
+							seq($.FULL, optional($.OUTER)),
 							$.INNER,
 							$.CROSS,
 						),
@@ -1008,17 +1022,18 @@ module.exports = grammar({
 
 		join_constraint: ($) =>
 			choice(
-				seq($.ON, $._expr),
+				seq($.ON, field("predicate", $._expr)),
 				seq($.USING, "(", commaSep($._name), ")"),
 			),
 
 		table_or_subquery: ($) =>
 			choice(
+				// Table reference: name [AS alias] [INDEXED BY ...]
 				prec.left(
 					1,
 					seq(
-						$._name2,
-						optional(seq(optional($.AS), $._name)),
+						field("name", $._name2),
+						optional(seq(optional($.AS), field("alias", $._name))),
 						optional(
 							choice(
 								seq($.INDEXED, $.BY, $._name),
@@ -1028,24 +1043,26 @@ module.exports = grammar({
 						optional($.join_constraint),
 					),
 				),
+				// Table-valued function: name(args...) [AS alias]
 				prec.left(
 					1,
 					seq(
-						$._name2,
+						field("name", $._name2),
 						"(",
 						commaSep($._expr),
 						")",
-						optional(seq(optional($.AS), $._name)),
+						optional(seq(optional($.AS), field("alias", $._name))),
 						optional($.join_constraint),
 					),
 				),
+				// Subquery: (SELECT ...) [AS alias]
 				prec.left(
 					1,
 					seq(
 						"(",
-						$.select_stmt,
+						field("body", $.select_stmt),
 						")",
-						optional(seq(optional($.AS), $._name)),
+						optional(seq(optional($.AS), field("alias", $._name))),
 						optional($.join_constraint),
 					),
 				),
