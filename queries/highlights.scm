@@ -1,4 +1,4 @@
-;;;
+;;; Punctuation
 
 ";" @punctuation.delimiter
 "," @punctuation.delimiter
@@ -6,6 +6,8 @@
 
 "(" @punctuation.bracket
 ")" @punctuation.bracket
+
+;;; Operators
 
 [
     "||"
@@ -15,18 +17,46 @@
     "->" "->>"
 ] @operator
 
-;;;
+;;; Literals
 
 (signed_number) @number
-
 (numeric_literal) @number
 (string_literal) @string
 (blob_literal) @string.special
-(identifier) @constant
 (bind_parameter) @variable.parameter
 (comment) @comment
 
-;;;
+;;; Functions
+
+(function_name) @function.call
+
+;;; Identifiers
+
+(identifier) @variable
+
+;;; Type names
+
+(type_name) @type
+
+;;; Column definitions
+
+(column_def
+  name: (_) @field)
+
+;;; Table references
+
+(table_or_subquery
+  alias: (_) @variable)
+
+(qualified_table_name
+  alias: (_) @variable)
+
+;;; Result columns
+
+(result_column
+  alias: (_) @variable)
+
+;;; Keywords
 
 (ABORT) @keyword
 (ACTION) @keyword
@@ -87,6 +117,7 @@
 (FOR) @keyword
 (FOREIGN) @keyword
 (FROM) @keyword
+(FULL) @keyword
 (GENERATED) @keyword
 (GLOB) @keyword
 (GROUP) @keyword
@@ -146,6 +177,7 @@
 (REPLACE) @keyword
 (RESTRICT) @keyword
 (RETURNING) @keyword
+(RIGHT) @keyword
 (ROLLBACK) @keyword
 (ROW) @keyword
 (ROWID) @keyword
@@ -154,6 +186,7 @@
 (SELECT) @keyword
 (SET) @keyword
 (STORED) @keyword
+(STRICT) @keyword
 (TABLE) @keyword
 (TEMP) @keyword
 (TEMPORARY) @keyword
