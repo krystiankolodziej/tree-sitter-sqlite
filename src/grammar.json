@@ -654,7 +654,7 @@
     },
     "_whitespace": {
       "type": "PATTERN",
-      "value": "[ \\t\\n\\f\\r]+"
+      "value": "[ \\t\\n\\f\\r\\u00A0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+"
     },
     "numeric_literal": {
       "type": "TOKEN",

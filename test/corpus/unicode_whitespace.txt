@@ -1,0 +1,31 @@
+================================================================================
+unicode whitespace between tokens
+================================================================================
+
+SELECT * FROM users　;
+ANALYZE schema.table;
+SELECT 1;
+
+--------------------------------------------------------------------------------
+
+(sql_stmt_list
+  (sql_stmt
+    (select_stmt
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
+  (sql_stmt
+    (analyze_stmt
+      (ANALYZE)
+      (identifier)
+      (identifier)))
+  (sql_stmt
+    (select_stmt
+      (select_core
+        (SELECT)
+        (result_column
+          (numeric_literal))))))
