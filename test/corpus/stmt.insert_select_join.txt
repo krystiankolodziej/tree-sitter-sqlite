@@ -1,0 +1,100 @@
+================================================================================
+insert select with join on
+================================================================================
+
+INSERT OR IGNORE INTO dbo_TaskLog(TaskLogId)
+SELECT t.TaskId
+FROM tmp_Task td
+JOIN dbo_Task t ON t.TaskId = td.TaskId;
+
+--------------------------------------------------------------------------------
+
+(sql_stmt_list
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (IGNORE)
+      (INTO)
+      table: (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            value: (identifier)
+            value: (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              name: (identifier)
+              alias: (identifier))
+            (join_operator
+              (JOIN))
+            (table_or_subquery
+              name: (identifier)
+              alias: (identifier))
+            (join_constraint
+              (ON)
+              predicate: (identifier)
+              predicate: (identifier)
+              predicate: (identifier)
+              predicate: (identifier))))))))
+
+================================================================================
+insert select with join on followed by upsert
+================================================================================
+
+INSERT INTO t SELECT * FROM s JOIN u ON s.id = u.id ON CONFLICT DO NOTHING;
+
+--------------------------------------------------------------------------------
+
+(sql_stmt_list
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      table: (identifier)
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column)
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              name: (identifier))
+            (join_operator
+              (JOIN))
+            (table_or_subquery
+              name: (identifier))
+            (join_constraint
+              (ON)
+              predicate: (identifier)
+              predicate: (identifier)
+              predicate: (identifier)
+              predicate: (identifier)))))
+      (upsert_clause
+        (on_conflict_keyword)
+        (DO)
+        (NOTHING)))))
+
+================================================================================
+insert values with upsert
+================================================================================
+
+INSERT INTO t VALUES (1) ON CONFLICT DO NOTHING;
+
+--------------------------------------------------------------------------------
+
+(sql_stmt_list
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      table: (identifier)
+      (VALUES)
+      (numeric_literal)
+      (upsert_clause
+        (on_conflict_keyword)
+        (DO)
+        (NOTHING)))))

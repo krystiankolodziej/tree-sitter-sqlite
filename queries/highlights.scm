@@ -83,6 +83,7 @@
 (COLUMN) @keyword
 (COMMIT) @keyword
 (CONFLICT) @keyword
+(on_conflict_keyword) @keyword
 (CONSTRAINT) @keyword
 (CREATE) @keyword
 (CROSS) @keyword

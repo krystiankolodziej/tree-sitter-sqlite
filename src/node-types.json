@@ -6192,10 +6192,6 @@
           "named": true
         },
         {
-          "type": "CONFLICT",
-          "named": true
-        },
-        {
           "type": "CURRENT_DATE",
           "named": true
         },
@@ -6280,10 +6276,6 @@
           "named": true
         },
         {
-          "type": "ON",
-          "named": true
-        },
-        {
           "type": "OR",
           "named": true
         },
@@ -6341,6 +6333,10 @@
         },
         {
           "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "on_conflict_keyword",
           "named": true
         },
         {
@@ -7705,6 +7701,10 @@
   },
   {
     "type": "numeric_literal",
+    "named": true
+  },
+  {
+    "type": "on_conflict_keyword",
     "named": true
   },
   {

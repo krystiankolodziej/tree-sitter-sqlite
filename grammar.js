@@ -1040,7 +1040,6 @@ module.exports = grammar({
 								seq($.NOT, $.INDEXED),
 							),
 						),
-						optional($.join_constraint),
 					),
 				),
 				// Table-valued function: name(args...) [AS alias]
@@ -1052,7 +1051,6 @@ module.exports = grammar({
 						commaSep($._expr),
 						")",
 						optional(seq(optional($.AS), field("alias", $._name))),
-						optional($.join_constraint),
 					),
 				),
 				// Subquery: (SELECT ...) [AS alias]
@@ -1063,16 +1061,32 @@ module.exports = grammar({
 						field("body", $.select_stmt),
 						")",
 						optional(seq(optional($.AS), field("alias", $._name))),
-						optional($.join_constraint),
 					),
 				),
 				seq("(", $._join_clause, ")"),
 			),
 
+		// Matched as a single lexer token so the parser never sees a
+		// standalone ON that could be the start of upsert_clause when
+		// it is actually a join_constraint inside a nested SELECT
+		// (e.g. `INSERT ... SELECT ... JOIN t ON ...`). Higher token
+		// precedence ensures the lexer prefers this combined match
+		// whenever the full sequence is present.
+		on_conflict_keyword: ($) =>
+			token(
+				prec(
+					1,
+					seq(
+						/[oO][nN]/,
+						/[ \t\n\f\r\u00A0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]+/,
+						/[cC][oO][nN][fF][lL][iI][cC][tT]/,
+					),
+				),
+			),
+
 		upsert_clause: ($) =>
 			seq(
-				$.ON,
-				$.CONFLICT,
+				$.on_conflict_keyword,
 				optional(
 					seq(
 						"(",

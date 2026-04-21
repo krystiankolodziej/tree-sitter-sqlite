@@ -7456,18 +7456,6 @@
                     "type": "BLANK"
                   }
                 ]
-              },
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "join_constraint"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
               }
             ]
           }
@@ -7551,18 +7539,6 @@
                     "type": "BLANK"
                   }
                 ]
-              },
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "join_constraint"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
               }
             ]
           }
@@ -7621,18 +7597,6 @@
                     "type": "BLANK"
                   }
                 ]
-              },
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "join_constraint"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
               }
             ]
           }
@@ -7656,16 +7620,36 @@
         }
       ]
     },
+    "on_conflict_keyword": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[oO][nN]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[ \\t\\n\\f\\r\\u00A0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[cC][oO][nN][fF][lL][iI][cC][tT]"
+            }
+          ]
+        }
+      }
+    },
     "upsert_clause": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "ON"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "CONFLICT"
+          "name": "on_conflict_keyword"
         },
         {
           "type": "CHOICE",
