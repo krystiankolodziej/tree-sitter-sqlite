@@ -74,7 +74,7 @@ INSERT INTO t SELECT * FROM s JOIN u ON s.id = u.id ON CONFLICT DO NOTHING;
               predicate: (identifier)
               predicate: (identifier)))))
       (upsert_clause
-        (on_conflict_keyword)
+        (ON_CONFLICT)
         (DO)
         (NOTHING)))))
 
@@ -95,6 +95,6 @@ INSERT INTO t VALUES (1) ON CONFLICT DO NOTHING;
       (VALUES)
       (numeric_literal)
       (upsert_clause
-        (on_conflict_keyword)
+        (ON_CONFLICT)
         (DO)
         (NOTHING)))))

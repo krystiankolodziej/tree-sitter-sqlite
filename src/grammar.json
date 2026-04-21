@@ -7620,7 +7620,7 @@
         }
       ]
     },
-    "on_conflict_keyword": {
+    "ON_CONFLICT": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -7649,7 +7649,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "on_conflict_keyword"
+          "name": "ON_CONFLICT"
         },
         {
           "type": "CHOICE",

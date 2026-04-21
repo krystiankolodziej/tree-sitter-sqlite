@@ -1072,7 +1072,7 @@ module.exports = grammar({
 		// (e.g. `INSERT ... SELECT ... JOIN t ON ...`). Higher token
 		// precedence ensures the lexer prefers this combined match
 		// whenever the full sequence is present.
-		on_conflict_keyword: ($) =>
+		ON_CONFLICT: ($) =>
 			token(
 				prec(
 					1,
@@ -1086,7 +1086,7 @@ module.exports = grammar({
 
 		upsert_clause: ($) =>
 			seq(
-				$.on_conflict_keyword,
+				$.ON_CONFLICT,
 				optional(
 					seq(
 						"(",

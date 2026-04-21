@@ -6276,6 +6276,10 @@
           "named": true
         },
         {
+          "type": "ON_CONFLICT",
+          "named": true
+        },
+        {
           "type": "OR",
           "named": true
         },
@@ -6333,10 +6337,6 @@
         },
         {
           "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "on_conflict_keyword",
           "named": true
         },
         {
@@ -7464,6 +7464,10 @@
     "named": true
   },
   {
+    "type": "ON_CONFLICT",
+    "named": true
+  },
+  {
     "type": "OR",
     "named": true
   },
@@ -7701,10 +7705,6 @@
   },
   {
     "type": "numeric_literal",
-    "named": true
-  },
-  {
-    "type": "on_conflict_keyword",
     "named": true
   },
   {
