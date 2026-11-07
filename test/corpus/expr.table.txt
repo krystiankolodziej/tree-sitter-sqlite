@@ -11,16 +11,22 @@ SELECT dbname.tblname.cname;
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (identifier)
-      (identifier))))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (identifier)
+          (identifier))))))

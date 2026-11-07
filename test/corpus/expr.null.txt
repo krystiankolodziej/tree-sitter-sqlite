@@ -11,17 +11,23 @@ SELECT 1 NOT NULL;
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (numeric_literal)
-      (ISNULL)))
+      (select_core
+        (SELECT)
+        (result_column
+          (numeric_literal)
+          (ISNULL)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (numeric_literal)
-      (NOTNULL)))
+      (select_core
+        (SELECT)
+        (result_column
+          (numeric_literal)
+          (NOTNULL)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (numeric_literal)
-      (NOT)
-      (NULL))))
+      (select_core
+        (SELECT)
+        (result_column
+          (numeric_literal)
+          (NOT)
+          (NULL))))))

@@ -22,9 +22,7 @@ module.exports = grammar({
 	],
 
 	conflicts: ($) => [
-		[$._literal_value, $._name],
 		[$._literal_value, $.signed_number],
-		[$.insert_stmt, $.select_core],
 		[$.foreign_key_clause],
 	],
 
@@ -470,11 +468,11 @@ module.exports = grammar({
 				optional(seq($.AS, field("alias", $._name))),
 				optional(seq("(", commaSep($._name), ")")),
 				choice(
-					seq(
-						$.VALUES,
-						commaSep(seq("(", commaSep($._expr), ")")),
-						optional($.upsert_clause),
-					),
+					// `VALUES (…), (…)` is a select_core, so INSERT … VALUES and
+					// INSERT … SELECT share one shape. A separate VALUES branch here
+					// made the two a GLR split kept alive to the end of the
+					// statement (fragile statements; the tree also depended on
+					// whether a ';' followed).
 					seq($.select_stmt, optional($.upsert_clause)),
 					seq($.DEFAULT, $.VALUES),
 				),
@@ -579,7 +577,10 @@ module.exports = grammar({
 			choice(
 				$._literal_value,
 				$.bind_parameter,
-				$._name,
+				// A bare string literal is a _literal_value; a quoted name is
+				// only reachable in a qualified reference. Keeping `_name` here
+				// made every string literal a GLR split (fragile statements).
+				$.identifier,
 				seq($._name, ".", $._name),
 				seq($._name, ".", $._name, ".", $._name),
 				prec.right("unary_bitnot", seq("~", $._expr)),

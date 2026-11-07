@@ -12,13 +12,15 @@ SELECT b||a FROM t1 ORDER BY (b||a) DESC;
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -27,13 +29,15 @@ SELECT b||a FROM t1 ORDER BY (b||a) DESC;
           (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -45,13 +49,15 @@ SELECT b||a FROM t1 ORDER BY (b||a) DESC;
             (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -61,13 +67,15 @@ SELECT b||a FROM t1 ORDER BY (b||a) DESC;
           (ASC)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)

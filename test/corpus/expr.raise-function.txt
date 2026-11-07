@@ -12,31 +12,39 @@ SELECT RAISE(FAIL, 'error message');
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (raise_function
-        (RAISE)
-        (IGNORE))))
+      (select_core
+        (SELECT)
+        (result_column
+          (raise_function
+            (RAISE)
+            (IGNORE))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (raise_function
-        (RAISE)
-        (ROLLBACK)
-        (error_message
-          (string_literal)))))
+      (select_core
+        (SELECT)
+        (result_column
+          (raise_function
+            (RAISE)
+            (ROLLBACK)
+            (error_message
+              (string_literal)))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (raise_function
-        (RAISE)
-        (ABORT)
-        (error_message
-          (string_literal)))))
+      (select_core
+        (SELECT)
+        (result_column
+          (raise_function
+            (RAISE)
+            (ABORT)
+            (error_message
+              (string_literal)))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (raise_function
-        (RAISE)
-        (FAIL)
-        (error_message
-          (string_literal))))))
+      (select_core
+        (SELECT)
+        (result_column
+          (raise_function
+            (RAISE)
+            (FAIL)
+            (error_message
+              (string_literal))))))))

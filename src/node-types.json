@@ -3201,39 +3201,7 @@
           "named": true
         },
         {
-          "type": "AND",
-          "named": true
-        },
-        {
           "type": "AS",
-          "named": true
-        },
-        {
-          "type": "BETWEEN",
-          "named": true
-        },
-        {
-          "type": "CASE",
-          "named": true
-        },
-        {
-          "type": "CAST",
-          "named": true
-        },
-        {
-          "type": "COLLATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_DATE",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIME",
-          "named": true
-        },
-        {
-          "type": "CURRENT_TIMESTAMP",
           "named": true
         },
         {
@@ -3241,47 +3209,11 @@
           "named": true
         },
         {
-          "type": "DISTINCT",
-          "named": true
-        },
-        {
-          "type": "ELSE",
-          "named": true
-        },
-        {
-          "type": "END",
-          "named": true
-        },
-        {
-          "type": "ESCAPE",
-          "named": true
-        },
-        {
-          "type": "EXISTS",
-          "named": true
-        },
-        {
           "type": "FAIL",
           "named": true
         },
         {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "FROM",
-          "named": true
-        },
-        {
-          "type": "GLOB",
-          "named": true
-        },
-        {
           "type": "IGNORE",
-          "named": true
-        },
-        {
-          "type": "IN",
           "named": true
         },
         {
@@ -3293,39 +3225,7 @@
           "named": true
         },
         {
-          "type": "IS",
-          "named": true
-        },
-        {
-          "type": "ISNULL",
-          "named": true
-        },
-        {
-          "type": "LIKE",
-          "named": true
-        },
-        {
-          "type": "MATCH",
-          "named": true
-        },
-        {
-          "type": "NOT",
-          "named": true
-        },
-        {
-          "type": "NOTNULL",
-          "named": true
-        },
-        {
-          "type": "NULL",
-          "named": true
-        },
-        {
           "type": "OR",
-          "named": true
-        },
-        {
-          "type": "REGEXP",
           "named": true
         },
         {
@@ -3337,55 +3237,11 @@
           "named": true
         },
         {
-          "type": "THEN",
-          "named": true
-        },
-        {
-          "type": "TRUE",
-          "named": true
-        },
-        {
           "type": "VALUES",
           "named": true
         },
         {
-          "type": "WHEN",
-          "named": true
-        },
-        {
-          "type": "bind_parameter",
-          "named": true
-        },
-        {
-          "type": "blob_literal",
-          "named": true
-        },
-        {
-          "type": "collation_name",
-          "named": true
-        },
-        {
-          "type": "filter_clause",
-          "named": true
-        },
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "over_clause",
-          "named": true
-        },
-        {
-          "type": "raise_function",
           "named": true
         },
         {
@@ -3398,10 +3254,6 @@
         },
         {
           "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "type_name",
           "named": true
         },
         {

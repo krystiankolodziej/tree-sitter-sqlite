@@ -1,0 +1,88 @@
+================================================================================
+string literals and VALUES rows without GLR splits
+================================================================================
+
+SELECT a FROM t WHERE n LIKE 'A%';
+INSERT INTO t (a, b) VALUES (1, 'x');
+INSERT INTO t VALUES (1, 'x') UNION SELECT 2, 'y';
+SELECT 'a'.b, 'x' FROM t WHERE c = 'y';
+SELECT * FROM (VALUES (1), (2));
+
+--------------------------------------------------------------------------------
+
+(sql_stmt_list
+  (sql_stmt
+    (select_stmt
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier)))
+        (where_clause
+          (WHERE)
+          (identifier)
+          (LIKE)
+          (string_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (string_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (string_literal))
+        (compound_operator
+          (UNION))
+        (select_core
+          (SELECT)
+          (result_column
+            (numeric_literal))
+          (result_column
+            (string_literal))))))
+  (sql_stmt
+    (select_stmt
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (identifier))
+        (result_column
+          (string_literal))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier)))
+        (where_clause
+          (WHERE)
+          (identifier)
+          (string_literal)))))
+  (sql_stmt
+    (select_stmt
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (select_stmt
+              (select_core
+                (VALUES)
+                (numeric_literal)
+                (numeric_literal)))))))))

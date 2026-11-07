@@ -13,49 +13,59 @@ SELECT 'x'||a||'x' AS alias FROM t1;
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (identifier)
-      (string_literal)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (identifier)
+          (string_literal))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (identifier)
-      (string_literal)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (identifier)
+          (string_literal)
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (identifier)
-      (string_literal)
-      (AS)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier))))))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (identifier)
+          (string_literal)
+          (AS)
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier)))))))
