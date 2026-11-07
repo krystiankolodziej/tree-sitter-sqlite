@@ -22,9 +22,7 @@ module.exports = grammar({
 	],
 
 	conflicts: ($) => [
-		[$._literal_value, $._name],
 		[$._literal_value, $.signed_number],
-		[$.insert_stmt, $.select_core],
 		[$.foreign_key_clause],
 	],
 
@@ -472,7 +470,7 @@ module.exports = grammar({
 				choice(
 					seq(
 						$.VALUES,
-						commaSep(seq("(", commaSep($._expr), ")")),
+						$._values_rows,
 						optional($.upsert_clause),
 					),
 					seq($.select_stmt, optional($.upsert_clause)),
@@ -579,7 +577,10 @@ module.exports = grammar({
 			choice(
 				$._literal_value,
 				$.bind_parameter,
-				$._name,
+				// A bare string literal is a _literal_value; a quoted name is
+				// only reachable in a qualified reference. Keeping `_name` here
+				// made every string literal a GLR split (fragile statements).
+				$.identifier,
 				seq($._name, ".", $._name),
 				seq($._name, ".", $._name, ".", $._name),
 				prec.right("unary_bitnot", seq("~", $._expr)),
@@ -819,8 +820,16 @@ module.exports = grammar({
 					optional($.group_by_clause),
 					optional($.window_clause),
 				),
-				seq($.VALUES, commaSep(seq("(", commaSep($._expr), ")"))),
+				// Lower than insert_stmt's own VALUES branch: `INSERT ... VALUES
+				// (...);` reduces insert_stmt directly, while a compound operator
+				// after the rows still selects this branch (LR(1) lookahead).
+				prec(-1, seq($.VALUES, $._values_rows)),
 			),
+
+		// Shared by insert_stmt and select_core so that `INSERT ... VALUES`
+		// is decided by the token after the rows (static precedence), not
+		// by a GLR split kept alive until the end of the statement.
+		_values_rows: ($) => commaSep(seq("(", commaSep($._expr), ")")),
 
 		// Renamed from _compound_operator to compound_operator (named node)
 		compound_operator: ($) =>
