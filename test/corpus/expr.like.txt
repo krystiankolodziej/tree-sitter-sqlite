@@ -24,121 +24,153 @@ SELECT 'abc' NOT MATCH 'abcd' ESCAPE '%';
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (LIKE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (LIKE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (LIKE)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (LIKE)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (GLOB)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (GLOB)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (GLOB)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (GLOB)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (REGEXP)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (REGEXP)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (REGEXP)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (REGEXP)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (MATCH)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (MATCH)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (MATCH)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (MATCH)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (LIKE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (LIKE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (LIKE)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (LIKE)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (GLOB)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (GLOB)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (GLOB)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (GLOB)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (REGEXP)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (REGEXP)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (REGEXP)
-      (string_literal)
-      (ESCAPE)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (REGEXP)
+          (string_literal)
+          (ESCAPE)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (MATCH)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (MATCH)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (NOT)
-      (MATCH)
-      (string_literal)
-      (ESCAPE)
-      (string_literal))))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (NOT)
+          (MATCH)
+          (string_literal)
+          (ESCAPE)
+          (string_literal))))))

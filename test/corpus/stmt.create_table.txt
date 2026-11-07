@@ -193,11 +193,13 @@ CREATE TABLE t1(col1, col2 TEXT, col3 INTEGER UNIQUE, col4 VARCHAR(10, 10) PRIMA
       (identifier)
       (AS)
       (select_stmt
-        (SELECT)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column)
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (create_table_stmt
       (CREATE)
@@ -206,14 +208,18 @@ CREATE TABLE t1(col1, col2 TEXT, col3 INTEGER UNIQUE, col4 VARCHAR(10, 10) PRIMA
       (identifier)
       (AS)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (create_table_stmt
       (CREATE)
@@ -221,19 +227,23 @@ CREATE TABLE t1(col1, col2 TEXT, col3 INTEGER UNIQUE, col4 VARCHAR(10, 10) PRIMA
       (identifier)
       (AS)
       (select_stmt
-        (SELECT)
-        (function_name
-          (identifier))
-        (function_name
-          (identifier))
-        (identifier)
-        (function_name
-          (identifier))
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (function_name
+              (identifier)))
+          (result_column
+            (function_name
+              (identifier))
+            (identifier))
+          (result_column
+            (function_name
+              (identifier))
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (create_table_stmt
       (CREATE)

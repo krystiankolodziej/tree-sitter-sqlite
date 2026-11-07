@@ -11,25 +11,31 @@ SELECT CAST ( '123' AS 'ab$ $cd' );
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (CAST)
-      (string_literal)
-      (AS)
-      (type_name
-        (identifier))))
+      (select_core
+        (SELECT)
+        (result_column
+          (CAST)
+          (string_literal)
+          (AS)
+          (type_name
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (CAST)
-      (string_literal)
-      (AS)
-      (type_name
-        (string_literal))))
+      (select_core
+        (SELECT)
+        (result_column
+          (CAST)
+          (string_literal)
+          (AS)
+          (type_name
+            (string_literal))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (CAST)
-      (string_literal)
-      (AS)
-      (type_name
-        (string_literal)))))
+      (select_core
+        (SELECT)
+        (result_column
+          (CAST)
+          (string_literal)
+          (AS)
+          (type_name
+            (string_literal)))))))

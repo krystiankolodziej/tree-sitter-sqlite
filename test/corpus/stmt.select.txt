@@ -26,18 +26,22 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -45,11 +49,13 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
           (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -59,21 +65,25 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
           (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (limit_clause
         (LIMIT)
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (limit_clause
         (LIMIT)
         (numeric_literal)
@@ -81,22 +91,26 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (limit_clause
         (LIMIT)
         (numeric_literal)
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -107,11 +121,13 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -124,11 +140,13 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -142,34 +160,46 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -177,19 +207,25 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
           (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -199,37 +235,49 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
           (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (limit_clause
         (LIMIT)
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (limit_clause
         (LIMIT)
         (numeric_literal)
@@ -237,38 +285,50 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (limit_clause
         (LIMIT)
         (numeric_literal)
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -279,19 +339,25 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)
@@ -304,19 +370,25 @@ SELECT * FROM t1 UNION SELECT b, a FROM t1 ORDER BY a,b LIMIT 10, 5;
         (numeric_literal))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
-      (UNION)
-      (SELECT)
-      (identifier)
-      (identifier)
-      (from_clause
-        (FROM)
-        (table_or_subquery
-          (identifier)))
+      (select_core
+        (SELECT)
+        (result_column)
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
+      (compound_operator
+        (UNION))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier))
+        (result_column
+          (identifier))
+        (from_clause
+          (FROM)
+          (table_or_subquery
+            (identifier))))
       (order_by_clause
         (ORDER)
         (BY)

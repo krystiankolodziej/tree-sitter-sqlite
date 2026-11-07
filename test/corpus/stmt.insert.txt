@@ -527,13 +527,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -541,29 +544,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ROLLBACK)
-      (INTO)
-      (identifier)
-      (identifier)
-      (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -571,14 +561,36 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (ROLLBACK)
       (INTO)
       (identifier)
+      (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ROLLBACK)
+      (INTO)
+      (identifier)
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -588,13 +600,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -603,13 +618,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -619,13 +637,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -634,13 +655,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -650,13 +674,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -665,13 +692,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -681,13 +711,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -696,26 +729,32 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
       (INTO)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
@@ -723,13 +762,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -738,13 +780,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -754,13 +799,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -772,13 +820,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -789,13 +840,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -807,13 +861,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -824,13 +881,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -842,13 +902,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -859,13 +922,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -877,13 +943,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -894,13 +963,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -912,13 +984,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -929,13 +1004,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
@@ -944,13 +1022,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
@@ -960,13 +1041,16 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (select_stmt
-        (SELECT)
-        (identifier)
-        (identifier)
-        (from_clause
-          (FROM)
-          (table_or_subquery
-            (identifier))))))
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)

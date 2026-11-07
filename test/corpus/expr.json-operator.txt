@@ -12,21 +12,29 @@ SELECT x -> '$';
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (string_literal)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (string_literal)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (string_literal)))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (string_literal)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (identifier)
-      (string_literal))))
+      (select_core
+        (SELECT)
+        (result_column
+          (identifier)
+          (string_literal))))))

@@ -12,26 +12,34 @@ SELECT substr('abc', 10, 20);
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (function_name
-        (identifier))))
+      (select_core
+        (SELECT)
+        (result_column
+          (function_name
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (function_name
-        (identifier))))
+      (select_core
+        (SELECT)
+        (result_column
+          (function_name
+            (identifier))))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (function_name
-        (identifier))
-      (DISTINCT)
-      (identifier)))
+      (select_core
+        (SELECT)
+        (result_column
+          (function_name
+            (identifier))
+          (DISTINCT)
+          (identifier)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (function_name
-        (identifier))
-      (string_literal)
-      (numeric_literal)
-      (numeric_literal))))
+      (select_core
+        (SELECT)
+        (result_column
+          (function_name
+            (identifier))
+          (string_literal)
+          (numeric_literal)
+          (numeric_literal))))))

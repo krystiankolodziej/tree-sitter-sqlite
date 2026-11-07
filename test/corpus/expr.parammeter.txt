@@ -14,22 +14,32 @@ SELECT $tcl;
 (sql_stmt_list
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (bind_parameter)))
+      (select_core
+        (SELECT)
+        (result_column
+          (bind_parameter)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (bind_parameter)))
+      (select_core
+        (SELECT)
+        (result_column
+          (bind_parameter)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (bind_parameter)))
+      (select_core
+        (SELECT)
+        (result_column
+          (bind_parameter)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (bind_parameter)))
+      (select_core
+        (SELECT)
+        (result_column
+          (bind_parameter)))))
   (sql_stmt
     (select_stmt
-      (SELECT)
-      (bind_parameter)))
+      (select_core
+        (SELECT)
+        (result_column
+          (bind_parameter)))))
   (comment))
