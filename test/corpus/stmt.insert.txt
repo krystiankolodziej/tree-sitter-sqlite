@@ -220,323 +220,11 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INSERT)
       (INTO)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ROLLBACK)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ROLLBACK)
-      (INTO)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ABORT)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ABORT)
-      (INTO)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (IGNORE)
-      (INTO)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ROLLBACK)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ROLLBACK)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ABORT)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (ABORT)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (IGNORE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (REPLACE)
-      (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (INTO)
-      (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -545,15 +233,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -564,15 +246,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -582,15 +258,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -601,15 +271,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -619,15 +283,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -638,15 +296,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -656,15 +308,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -675,15 +321,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -693,15 +333,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -712,15 +346,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -730,15 +358,9 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
@@ -746,20 +368,219 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (select_stmt
         (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
       (INTO)
       (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ROLLBACK)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ROLLBACK)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ABORT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ABORT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (FAIL)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (FAIL)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (FAIL)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (IGNORE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
       (identifier)
       (select_stmt
         (select_core
@@ -776,26 +597,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
     (insert_stmt
       (INSERT)
       (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (select_stmt
-        (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (INTO)
-      (identifier)
-      (identifier)
       (identifier)
       (identifier)
       (select_stmt
@@ -817,8 +618,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (identifier)
-      (identifier)
-      (identifier)
       (select_stmt
         (select_core
           (SELECT)
@@ -837,6 +636,23 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (ROLLBACK)
       (INTO)
       (identifier)
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ABORT)
+      (INTO)
       (identifier)
       (identifier)
       (select_stmt
@@ -857,9 +673,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (ABORT)
       (INTO)
       (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
       (select_stmt
         (select_core
           (SELECT)
@@ -875,9 +688,8 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
     (insert_stmt
       (INSERT)
       (OR)
-      (ABORT)
+      (REPLACE)
       (INTO)
-      (identifier)
       (identifier)
       (identifier)
       (select_stmt
@@ -898,9 +710,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (REPLACE)
       (INTO)
       (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
       (select_stmt
         (select_core
           (SELECT)
@@ -916,9 +725,8 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
     (insert_stmt
       (INSERT)
       (OR)
-      (REPLACE)
+      (FAIL)
       (INTO)
-      (identifier)
       (identifier)
       (identifier)
       (select_stmt
@@ -939,9 +747,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (FAIL)
       (INTO)
       (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
       (select_stmt
         (select_core
           (SELECT)
@@ -959,28 +764,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (OR)
       (FAIL)
       (INTO)
-      (identifier)
-      (identifier)
-      (identifier)
-      (select_stmt
-        (select_core
-          (SELECT)
-          (result_column
-            (identifier))
-          (result_column
-            (identifier))
-          (from_clause
-            (FROM)
-            (table_or_subquery
-              (identifier)))))))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (OR)
-      (FAIL)
-      (INTO)
-      (identifier)
-      (identifier)
       (identifier)
       (identifier)
       (select_stmt
@@ -1001,7 +784,21 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (IGNORE)
       (INTO)
       (identifier)
-      (identifier)
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
+  (sql_stmt
+    (insert_stmt
+      (REPLACE)
+      (INTO)
       (identifier)
       (select_stmt
         (select_core
@@ -1020,7 +817,6 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (INTO)
       (identifier)
       (identifier)
-      (identifier)
       (select_stmt
         (select_core
           (SELECT)
@@ -1034,9 +830,8 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
               (identifier)))))))
   (sql_stmt
     (insert_stmt
-      (REPLACE)
+      (INSERT)
       (INTO)
-      (identifier)
       (identifier)
       (identifier)
       (identifier)
@@ -1058,24 +853,18 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
-  (sql_stmt
-    (insert_stmt
-      (INSERT)
-      (INTO)
       (identifier)
-      (identifier)
-      (identifier)
-      (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1086,11 +875,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1100,11 +895,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1115,11 +916,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1129,11 +936,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1144,11 +957,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1158,11 +977,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1173,11 +998,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1187,11 +1018,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1202,11 +1039,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (INSERT)
@@ -1216,11 +1059,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
@@ -1228,11 +1077,17 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
   (sql_stmt
     (insert_stmt
       (REPLACE)
@@ -1241,8 +1096,237 @@ REPLACE            INTO main.a1 (b, a) VALUES(1, 2),(3,4);
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal)
-      (numeric_literal))))
+      (select_stmt
+        (select_core
+          (SELECT)
+          (result_column
+            (identifier))
+          (result_column
+            (identifier))
+          (from_clause
+            (FROM)
+            (table_or_subquery
+              (identifier)))))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ROLLBACK)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ROLLBACK)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ABORT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (ABORT)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (FAIL)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (FAIL)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (FAIL)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (INSERT)
+      (OR)
+      (IGNORE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)))))
+  (sql_stmt
+    (insert_stmt
+      (REPLACE)
+      (INTO)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal)
+          (numeric_literal))))))

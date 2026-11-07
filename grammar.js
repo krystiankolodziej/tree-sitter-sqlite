@@ -468,11 +468,11 @@ module.exports = grammar({
 				optional(seq($.AS, field("alias", $._name))),
 				optional(seq("(", commaSep($._name), ")")),
 				choice(
-					seq(
-						$.VALUES,
-						$._values_rows,
-						optional($.upsert_clause),
-					),
+					// `VALUES (…), (…)` is a select_core, so INSERT … VALUES and
+					// INSERT … SELECT share one shape. A separate VALUES branch here
+					// made the two a GLR split kept alive to the end of the
+					// statement (fragile statements; the tree also depended on
+					// whether a ';' followed).
 					seq($.select_stmt, optional($.upsert_clause)),
 					seq($.DEFAULT, $.VALUES),
 				),
@@ -820,16 +820,8 @@ module.exports = grammar({
 					optional($.group_by_clause),
 					optional($.window_clause),
 				),
-				// Lower than insert_stmt's own VALUES branch: `INSERT ... VALUES
-				// (...);` reduces insert_stmt directly, while a compound operator
-				// after the rows still selects this branch (LR(1) lookahead).
-				prec(-1, seq($.VALUES, $._values_rows)),
+				seq($.VALUES, commaSep(seq("(", commaSep($._expr), ")"))),
 			),
-
-		// Shared by insert_stmt and select_core so that `INSERT ... VALUES`
-		// is decided by the token after the rows (static precedence), not
-		// by a GLR split kept alive until the end of the statement.
-		_values_rows: ($) => commaSep(seq("(", commaSep($._expr), ")")),
 
 		// Renamed from _compound_operator to compound_operator (named node)
 		compound_operator: ($) =>

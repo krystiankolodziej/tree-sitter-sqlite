@@ -33,9 +33,11 @@ SELECT * FROM (VALUES (1), (2));
       (identifier)
       (identifier)
       (identifier)
-      (VALUES)
-      (numeric_literal)
-      (string_literal)))
+      (select_stmt
+        (select_core
+          (VALUES)
+          (numeric_literal)
+          (string_literal)))))
   (sql_stmt
     (insert_stmt
       (INSERT)
